@@ -6,7 +6,7 @@ export const stones = [
     sectionId: 'space-section',
     color: '#1E3A8A',
     name: 'Space',
-    image: '/stones/space.webp',
+    image: `${import.meta.env.BASE_URL}/stones/space.webp`,
     glow: 'drop-shadow-[0_0_25px_#3b82f6]',
   },
   {
@@ -14,7 +14,7 @@ export const stones = [
     sectionId: 'mind-section',
     color: '#FACC15',
     name: 'Mind',
-    image: '/stones/mind.webp',
+    image: `${import.meta.env.BASE_URL}/stones/mind.webp`,
     glow: 'drop-shadow-[0_0_25px_#facc15]',
   },
   {
@@ -22,7 +22,7 @@ export const stones = [
     sectionId: 'reality-section',
     color: '#DC2626',
     name: 'Reality',
-    image: '/stones/reality.webp',
+    image: `${import.meta.env.BASE_URL}/stones/reality.webp`,
     glow: 'drop-shadow-[0_0_25px_#ec4899]',
   },
   {
@@ -30,7 +30,7 @@ export const stones = [
     sectionId: 'power-section',
     color: '#6B21A8',
     name: 'Power',
-    image: '/stones/power.webp',
+    image: `${import.meta.env.BASE_URL}/stones/power.webp`,
     glow: 'drop-shadow-[0_0_25px_#dc2626]',
   },
   {
@@ -38,7 +38,7 @@ export const stones = [
     sectionId: 'time-section',
     color: '#15803D',
     name: 'Time',
-    image: '/stones/time.webp',
+    image: `${import.meta.env.BASE_URL}/stones/time.webp`,
     glow: 'drop-shadow-[0_0_25px_#4ade80]',
   },
   {
@@ -46,7 +46,7 @@ export const stones = [
     sectionId: 'soul-section',
     color: '#EA580C',
     name: 'Soul',
-    image: '/stones/soul.webp',
+    image: `${import.meta.env.BASE_URL}/stones/soul.webp`,
     glow: 'drop-shadow-[0_0_25px_#f97316]',
   },
 ];

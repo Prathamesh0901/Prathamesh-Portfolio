@@ -14,7 +14,7 @@ const experiences = [
       "Built simple web apps using Flask and Python.",
       "Wrote modular scripts to improve code reuse.",
     ],
-    companyLogo: "/logos/ifs-logo.png",
+    companyLogo: `${import.meta.env.BASE_URL}/logos/ifs-logo.png`,
   },
   {
     title: "Software Developer Intern",
@@ -24,7 +24,7 @@ const experiences = [
       "Developed modular UIs using React.js and Bootstrap.",
       "Integrated REST APIs for improved UX and UI consistency.",
     ],
-    companyLogo: "/logos/hirademy-logo.png",
+    companyLogo: `${import.meta.env.BASE_URL}/logos/hirademy-logo.png`,
   },
 ];
 

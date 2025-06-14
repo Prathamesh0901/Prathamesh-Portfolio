@@ -8,12 +8,12 @@ export default function NavBar() {
   const [lastScrollY, setLastScrollY] = useState(0);
 
   const stones = [
-    { id: 'space', title: 'About', href: '#about', src: '/stones/space.webp', glow: 'drop-shadow-[0_0_25px_#3b82f6]' },
-    { id: 'mind', title: 'Skills', href: '#skills', src: '/stones/mind.webp', glow: 'drop-shadow-[0_0_25px_#facc15]' },
-    { id: 'reality', title: 'Projects', href: '#projects', src: '/stones/reality.webp', glow: 'drop-shadow-[0_0_25px_#ec4899]' },
-    { id: 'power', title: 'Experience', href: '#experience', src: '/stones/power.webp', glow: 'drop-shadow-[0_0_25px_#dc2626]' },
-    { id: 'time', title: 'Education', href: '#education', src: '/stones/time.webp', glow: 'drop-shadow-[0_0_25px_#4ade80]' },
-    { id: 'soul', title: 'Achievements', href: '#achievements', src: '/stones/soul.webp', glow: 'drop-shadow-[0_0_25px_#f97316]' },
+    { id: 'space', title: 'About', href: '#about', src:`${import.meta.env.BASE_URL}/stones/space.webp`, glow: 'drop-shadow-[0_0_25px_#3b82f6]' },
+    { id: 'mind', title: 'Skills', href: '#skills', src: `${import.meta.env.BASE_URL}/stones/mind.webp`, glow: 'drop-shadow-[0_0_25px_#facc15]' },
+    { id: 'reality', title: 'Projects', href: '#projects', src: `${import.meta.env.BASE_URL}/stones/reality.webp`, glow: 'drop-shadow-[0_0_25px_#ec4899]' },
+    { id: 'power', title: 'Experience', href: '#experience', src: `${import.meta.env.BASE_URL}/stones/power.webp`, glow: 'drop-shadow-[0_0_25px_#dc2626]' },
+    { id: 'time', title: 'Education', href: '#education', src: `${import.meta.env.BASE_URL}/stones/time.webp`, glow: 'drop-shadow-[0_0_25px_#4ade80]' },
+    { id: 'soul', title: 'Achievements', href: '#achievements', src: `${import.meta.env.BASE_URL}/stones/soul.webp`, glow: 'drop-shadow-[0_0_25px_#f97316]' },
   ];
 
   useEffect(() => {

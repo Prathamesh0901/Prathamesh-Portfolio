@@ -24,7 +24,7 @@ export default function SnapManager() {
       });
 
       const link = document.createElement("a");
-      link.href = "/resume.pdf";
+      link.href = `${import.meta.env.BASE_URL}/resume.pdf`;
       link.download = "PrathameshResume.pdf";
       document.body.appendChild(link);
       link.click();

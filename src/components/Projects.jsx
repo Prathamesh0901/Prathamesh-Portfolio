@@ -9,7 +9,7 @@ import DisintegrateText from "./DisIntegrateText.jsx";
 const projects = [
   {
     title: "Zoom MCP Server",
-    image: "/projects/zoom-mcp.png",
+    image: `${import.meta.env.BASE_URL}/projects/zoom-mcp.png`,
     github: "https://github.com/Prathamesh0901/zoom-mcp-server",
     npm: "https://www.npmjs.com/package/@prathamesh0901/zoom-mcp-server",
     bullets: [
@@ -18,7 +18,7 @@ const projects = [
   },
   {
     title: "Wanderlust",
-    image: "/projects/wanderlust.png",
+    image: `${import.meta.env.BASE_URL}/projects/wanderlust.png`,
     github: "https://github.com/Prathamesh0901/wanderlust",
     live: "https://wanderlust-e4sr.onrender.com/",
     bullets: [
@@ -27,7 +27,7 @@ const projects = [
   },
   {
     title: "Expression Converter",
-    image: "/projects/expression-converter.png",
+    image: `${import.meta.env.BASE_URL}/projects/expression-converter.png`,
     github: "https://github.com/Prathamesh0901/Expression-Converter",
     bullets: [
       "C++ console app to convert and evaluate infix, prefix, and postfix expressions using OOP.",
