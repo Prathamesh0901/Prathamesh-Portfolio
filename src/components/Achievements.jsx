@@ -54,7 +54,7 @@ const Achievements = () => {
                                 {idx < achievements.length - 1 && (
                                     <div
                                         className="absolute left-[7.1px] top-1/2 w-[2px] bg-[#FFD700]"
-                                        style={{ height: 'calc(50% + 50px)' }}
+                                        style={{ height: 'calc(50% + 60px)' }}
                                     ></div>
                                 )}
 

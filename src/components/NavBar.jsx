@@ -31,7 +31,7 @@ export default function NavBar() {
     <>
       {/* Navbar */}
       <div className={`fixed top-0 left-0 w-full z-50 px-8 py-6 flex items-center justify-between transition-transform duration-500 ${showNavbar ? 'translate-y-0' : '-translate-y-full'}`}>
-        <h1 className="font-display text-white text-2xl md:text-4xl font-semibold pl-4"><a href='/'>Prathamesh Mane</a></h1>
+        <h1 className="font-display text-white text-2xl md:text-4xl font-semibold pl-4"><a href={import.meta.env.BASE_URL}>Prathamesh Mane</a></h1>
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="w-10 h-10 flex flex-col justify-center items-center relative z-50"

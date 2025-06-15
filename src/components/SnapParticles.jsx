@@ -6,17 +6,19 @@ export default function SnapParticles() {
   const { collected } = useCollectedStones();
   const canvasRef = useRef(null);
   const [active, setActive] = useState(false);
+  const [hasSnapped, setHasSnapped] = useState(false);
 
   useEffect(() => {
     const handleSnap = () => {
-      if(collected.length < 6) return;
+      if(collected.length < 6 || hasSnapped) return;
       setActive(true);
-      setTimeout(() => setActive(false), 3000); // auto-hide after 3s
+      setHasSnapped(true);
+      setTimeout(() => setActive(false), 3000); 
     };
 
     window.addEventListener("snap", handleSnap);
     return () => window.removeEventListener("snap", handleSnap);
-  }, [collected]);
+  }, [collected, hasSnapped]);
 
   useEffect(() => {
     if (!active || !canvasRef.current) return;

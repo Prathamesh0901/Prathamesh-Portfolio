@@ -4,12 +4,14 @@ import { useEffect, useRef } from "react";
 import useSnapGesture from "../hooks/useSnapGesture";
 import { useCollectedStones } from "../hooks/useCollectedStones.jsx";
 import SnapParticles from "./SnapParticles";
+import { useEmptySnapSound } from "../hooks/useEmptySnapSound.js";
 
 export default function SnapManager() {
   const { collected } = useCollectedStones();
   const fadeControls = useAnimationControls();
   const hasSnapped = useRef(false);
   useSnapGesture(true);
+  useEmptySnapSound();
 
   useEffect(() => {
     const handleSnap = () => {

@@ -15,6 +15,7 @@ export const CollectedStonesProvider = ({ children }) => {
 
     if (!collected.includes(matched.id)) {
       setCollected(prev => [...prev, matched.id]);
+      window.dispatchEvent(new CustomEvent("collect", { detail: { color: matched.color } }));
     }
   };
 

@@ -8,6 +8,7 @@ import Education from './components/Education';
 import Achievements from './components/Achievements';
 import Contact from './components/Contact';
 import SnapManager from './components/SnapManager';
+import ToggleButtons from './components/ToggleButtons';
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
           <div className="absolute inset-0 bg-black opacity-60" />
         </div>
 
+        <ToggleButtons />
         <div className="relative z-20 background-drop-sm">
           <NavBar />
           <SnapManager />
