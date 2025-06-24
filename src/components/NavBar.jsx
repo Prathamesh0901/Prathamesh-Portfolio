@@ -2,13 +2,15 @@ import { useEffect, useState } from 'react';
 import { useCollectedStones } from "../hooks/useCollectedStones.jsx";
 
 export default function NavBar() {
-  const {collected} = useCollectedStones();
+  const { collected } = useCollectedStones();
   const [menuOpen, setMenuOpen] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [showHint, setShowHint] = useState("");
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
 
   const stones = [
-    { id: 'space', title: 'About', href: '#about', src:`${import.meta.env.BASE_URL}/stones/space.webp`, glow: 'drop-shadow-[0_0_25px_#3b82f6]' },
+    { id: 'space', title: 'About', href: '#about', src: `${import.meta.env.BASE_URL}/stones/space.webp`, glow: 'drop-shadow-[0_0_25px_#3b82f6]' },
     { id: 'mind', title: 'Skills', href: '#skills', src: `${import.meta.env.BASE_URL}/stones/mind.webp`, glow: 'drop-shadow-[0_0_25px_#facc15]' },
     { id: 'reality', title: 'Projects', href: '#projects', src: `${import.meta.env.BASE_URL}/stones/reality.webp`, glow: 'drop-shadow-[0_0_25px_#ec4899]' },
     { id: 'power', title: 'Experience', href: '#experience', src: `${import.meta.env.BASE_URL}/stones/power.webp`, glow: 'drop-shadow-[0_0_25px_#dc2626]' },
@@ -27,11 +29,37 @@ export default function NavBar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
 
+  // Detect screen size
+  useEffect(() => {
+    const updateScreen = () => setIsLargeScreen(window.innerWidth >= 1024);
+    updateScreen();
+    window.addEventListener("resize", updateScreen);
+    return () => window.removeEventListener("resize", updateScreen);
+  }, []);
+
+  // Show hints based on collected stones
+  useEffect(() => {
+    console.log(collected.length)
+    const totalStones = 6;
+    if (collected.length === 0) {
+      setShowHint("Try collecting the stones!");
+    } else if (collected.length === totalStones && isLargeScreen) {
+      setShowHint("Try snapping using Left + Right click or bottom left button");
+    } else {
+      setShowHint("");
+    }
+
+    const timer = setTimeout(() => setShowHint(""), 8000);
+    return () => clearTimeout(timer);
+  }, [collected, isLargeScreen]);
+
   return (
     <>
       {/* Navbar */}
       <div className={`fixed top-0 left-0 w-full z-50 px-8 py-6 flex items-center justify-between transition-transform duration-500 ${showNavbar ? 'translate-y-0' : '-translate-y-full'}`}>
-        <h1 className="font-display text-white text-2xl md:text-4xl font-semibold pl-4"><a href={import.meta.env.BASE_URL}>Prathamesh Mane</a></h1>
+        <h1 className="font-display text-white text-2xl md:text-4xl font-semibold pl-4">
+          <a href={import.meta.env.BASE_URL}>Prathamesh Mane</a>
+        </h1>
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="w-10 h-10 flex flex-col justify-center items-center relative z-50"
@@ -66,7 +94,7 @@ export default function NavBar() {
                   <img
                     src={stone.src}
                     alt={stone.title}
-                    className={`w-16 h-16 md:w-20 md:h-20 rounded-full ${collected.includes(stone.id)?'':stone.glow} transition-transform duration-300`}
+                    className={`w-16 h-16 md:w-20 md:h-20 rounded-full ${collected.includes(stone.id) ? '' : stone.glow} transition-transform duration-300`}
                   />
                   <span className="absolute left-1/2 -translate-x-1/2 text-white text-sm md:text-base font-medium text-center pointer-events-none">
                     {stone.title}
@@ -77,6 +105,13 @@ export default function NavBar() {
           </div>
         </div>
       </div>
+
+      {/* Hint Message */}
+      {showHint && (
+        <div className="fixed bottom-8 left-1/2 -translate-x-1/2 bg-white/10 text-white px-4 py-2 rounded-lg shadow-md backdrop-blur border border-white/20 z-[9999] text-sm md:text-base pointer-events-none animate-fade-in-out">
+          {showHint}
+        </div>
+      )}
     </>
   );
 }

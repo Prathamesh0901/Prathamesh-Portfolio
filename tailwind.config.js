@@ -9,19 +9,26 @@ export default {
       animation: {
         'spin-slow': 'spin 60s linear infinite',
         'spin-reverse': 'spin-reverse 60s linear infinite',
+        'fade-in-out': 'fadeInOut 1s ease-in-out',
       },
       fontFamily: {
-        display: ["Orbitron", "sans-serif"], 
-        body: ["Montserrat", "sans-serif"],  
+        display: ["Orbitron", "sans-serif"],
+        body: ["Montserrat", "sans-serif"],
       },
       keyframes: {
         'spin-reverse': {
-            from: {
-               transform: 'rotate(360deg)',
-            },
-            to: {
-               transform: 'rotate(0deg)',
-            },
+          from: {
+            transform: 'rotate(360deg)',
+          },
+          to: {
+            transform: 'rotate(0deg)',
+          },
+        },
+        'fadeInOut': {
+          '0%': { opacity: 0 },
+          '20%': { opacity: 1 },
+          '80%': { opacity: 1 },
+          '100%': { opacity: 0 },
         },
       },
     },
